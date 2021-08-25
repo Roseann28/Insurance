@@ -1,6 +1,6 @@
-package Ui;
+package ui;
 
-import Model.Admin;
+import model.Admin;
 
 import java.util.Scanner;
 

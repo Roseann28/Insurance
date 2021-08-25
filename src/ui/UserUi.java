@@ -1,8 +1,8 @@
-package Ui;
+package ui;
 
-import Model.User;
-import Util.ClassUtil;
-import Util.Gender;
+import model.User;
+import util.ClassUtil;
+import util.Gender;
 
 import java.text.ParseException;
 import java.util.Scanner;

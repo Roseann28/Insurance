@@ -1,6 +1,4 @@
-package Logic;
-
-import Model.User;
+package logic;
 
 import java.sql.SQLException;
 import java.text.ParseException;

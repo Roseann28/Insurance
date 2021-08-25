@@ -1,7 +1,7 @@
-import Logic.AdminUserLogic;
-import Logic.MoneyMarketFundLogic;
-import Logic.UserLogic;
-import Ui.AdminUi;
+import logic.AdminUserLogic;
+import logic.MoneyMarketFundLogic;
+import logic.UserLogic;
+import ui.AdminUi;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[]args) throws SQLException, ParseException, ClassNotFoundException {
         Scanner scanner=new Scanner(System.in);
         UserLogic userLogic=new UserLogic();
+        String name;
 
         System.out.println("Welcome to our insurance system");
         System.out.println("1. login");
@@ -20,8 +21,9 @@ public class Main {
         scanner.nextLine();
         switch (choice){
             case 1:
-                if (userLogic.login()!=null){
-                    transactionSection(scanner);
+                name=userLogic.login();
+                if (name!=null){
+                    transactionSection(scanner,name);
                 }
                 break;
             case 2:
@@ -116,7 +118,7 @@ public class Main {
         return rates;
     }
 
-    private static void transactionSection(Scanner scanner) throws SQLException, ParseException, ClassNotFoundException {
+    private static void transactionSection(Scanner scanner,String name) throws SQLException, ParseException, ClassNotFoundException {
         MoneyMarketFundLogic mmflogic=new MoneyMarketFundLogic();
         System.out.println("Would you like to" +
                 "1.Deposit" +
@@ -135,7 +137,7 @@ public class Main {
             case 3:
                 mmflogic.viewtransaction();
             case 4:
-                mmflogic.moneygrowth(adminduties());
+                mmflogic.moneygrowth(adminduties(),name);
                 break;
 
         }
